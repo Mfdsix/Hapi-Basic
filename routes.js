@@ -1,5 +1,19 @@
 const routes = [
     {
+        method: 'POST',
+        path: '/auth/login',
+        handler: (req, h) => {
+            const { username, password } = req.payload
+            console.log(req.payload)
+
+            if (!username || !password)
+                return "Please fill username and password"
+            if (username == 'user123' && password == 'pass123')
+                return "Login Success"
+            return "Login Faild"
+        }
+    },
+    {
         method: 'GET',
         path: '/',
         handler: (req, h) => {
